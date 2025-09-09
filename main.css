@@ -4,6 +4,7 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.6;
+    background: #f2f2f2;
 }
 
 /* Galvene */
@@ -31,6 +32,9 @@ nav a {
 main {
     display: flex;
     margin: 1rem;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
 }
 article {
     flex: 3;
@@ -41,6 +45,67 @@ aside {
     background: #f4f4f4;
     padding: 1rem;
     margin-left: 1rem;
+}
+
+/* Kartīšu sadaļa */
+.cards-section {
+    padding: 2rem;
+    text-align: center;
+}
+.card-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+.card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    width: 300px;
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    animation: floatUp 0.5s ease;
+}
+@keyframes floatUp {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(-10px); }
+}
+.card img {
+    width: 100%;
+    height: auto;
+}
+.card h3 {
+    margin: 15px 0 10px;
+    font-size: 20px;
+}
+.card p {
+    padding: 0 15px;
+    font-size: 14px;
+    color: #555;
+}
+/* Poga */
+.card button {
+    margin: 15px 0 20px;
+    padding: 10px 20px;
+    border: none;
+    background: #007BFF;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+.card button:hover {
+    background: #0056b3;
+    transform: scale(1.05);
 }
 
 /* Kājene */
