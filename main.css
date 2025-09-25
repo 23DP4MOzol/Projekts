@@ -5,13 +5,17 @@ body {
     padding: 0;
     line-height: 1.6;
     background: #f2f2f2;
+    color: #222;
 }
 
-/* Galvene */
+/* Galvene un navigācija */
 header {
     background: #333;
     color: #fff;
     padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 header h1 {
     margin: 0;
@@ -26,6 +30,27 @@ nav ul {
 nav a {
     color: #fff;
     text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+nav a:hover {
+    background: #fff;
+    color: #333;
+    border-radius: 5px;
+}
+
+/* Dark mode pārslēgšanas poga */
+#darkModeToggle {
+    background: #555;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+#darkModeToggle:hover {
+    background: #777;
 }
 
 /* Galvenā sadaļa */
@@ -71,12 +96,6 @@ aside {
 .card:hover {
     transform: translateY(-10px);
     box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-    animation: floatUp 0.5s ease;
-}
-@keyframes floatUp {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-5px); }
-    100% { transform: translateY(-10px); }
 }
 .card img {
     width: 100%;
@@ -91,7 +110,6 @@ aside {
     font-size: 14px;
     color: #555;
 }
-/* Poga */
 .card button {
     margin: 15px 0 20px;
     padding: 10px 20px;
@@ -119,4 +137,51 @@ footer {
 footer a {
     color: #fff;
     margin: 0 0.5rem;
+}
+
+/* Responsīvs dizains */
+@media (max-width: 768px) {
+    main {
+        flex-direction: column;
+    }
+    aside {
+        margin-left: 0;
+        margin-top: 1rem;
+    }
+    .card-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* 🌙 Dark mode stili */
+body.dark-mode {
+    background: #121212;
+    color: #e0e0e0;
+}
+body.dark-mode header {
+    background: #222;
+}
+body.dark-mode nav a {
+    color: #e0e0e0;
+}
+body.dark-mode nav a:hover {
+    background: #444;
+    color: #fff;
+}
+body.dark-mode main {
+    background: #1e1e1e;
+}
+body.dark-mode aside {
+    background: #2a2a2a;
+}
+body.dark-mode .card {
+    background: #1e1e1e;
+    box-shadow: 0 4px 6px rgba(255,255,255,0.1);
+}
+body.dark-mode .card p {
+    color: #ccc;
+}
+body.dark-mode footer {
+    background: #222;
 }

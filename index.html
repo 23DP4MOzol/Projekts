@@ -12,11 +12,13 @@
         <h1>Mana vietne</h1>
         <nav>
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="#">Sākums</a></li>
+                <li><a href="#">Par mums</a></li>
+                <li><a href="#">Kontakti</a></li>
             </ul>
         </nav>
+        <!-- Dark mode poga -->
+        <button id="darkModeToggle">🌙 Tumšais režīms</button>
     </header>
 
     <main>
@@ -24,7 +26,7 @@
             <h1>Sveicināti manā vietnē</h1>
             <h2>Neliels ievads</h2>
             <p>Šī ir pamata HTML un CSS vietnes struktūra ar galveni, galveno sadaļu, sānu joslu un kājeni.</p>
-            <img src="https://www.guidingtech.com/wp-content/uploads/What_Happens_When_You_Accept_an_Offer_on_Facebook_Marketplace.jpg" width="400px" height="400px" alt="Paraugs">
+            <img src="https://via.placeholder.com/400x200" alt="Paraugs">
         </article>
 
         <aside>
@@ -42,21 +44,21 @@
         <h2>Produktu kartītes</h2>
         <div class="card-container">
             <div class="card">
-                <img src="https://capital.lv/media/catalog/product/cache/78b7d5e9d325dc0c77c021f203703bf1/5/5/5530_1_5.jpg" alt="Produkts 1">
+                <img src="https://via.placeholder.com/300x200" alt="Produkts 1">
                 <h3>Produkts 1</h3>
                 <p>Īss apraksts par produktu. Cena: 20€</p>
                 <button>Pirkt</button>
             </div>
 
             <div class="card">
-                <img src="https://ksd-images.lt/display/aikido/cache/0866ac6e50122fe33a254a5e00641c28.jpeg" alt="Produkts 2">
+                <img src="https://via.placeholder.com/300x200" alt="Produkts 2">
                 <h3>Produkts 2</h3>
                 <p>Īss apraksts par produktu. Cena: 35€</p>
                 <button>Pirkt</button>
             </div>
 
             <div class="card">
-                <img src="https://raidersraitis.lv/cdn/shop/files/12d1b712-e2cb-4bf5-a8e1-1d48fb0f3558_e57ae96f-0e45-4381-82c8-c55a474503b7.jpg?v=1738241616" alt="Produkts 3">
+                <img src="https://via.placeholder.com/300x200" alt="Produkts 3">
                 <h3>Produkts 3</h3>
                 <p>Īss apraksts par produktu. Cena: 50€</p>
                 <button>Pirkt</button>
@@ -72,6 +74,19 @@
             <a href="#">Instagram</a>
         </p>
     </footer>
+
+    <!-- JavaScript priekš Dark mode -->
+    <script>
+        const toggleButton = document.getElementById('darkModeToggle');
+        toggleButton.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            if(document.body.classList.contains('dark-mode')){
+                toggleButton.textContent = "☀️ Gaišais režīms";
+            } else {
+                toggleButton.textContent = "🌙 Tumšais režīms";
+            }
+        });
+    </script>
 
 </body>
 </html>
