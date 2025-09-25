@@ -1,92 +1,130 @@
 <!DOCTYPE html>
 <html lang="lv">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mana tīmekļa vietne</title>
-    <link rel="stylesheet" href="main.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mana vietne</title>
+  <link rel="stylesheet" href="main.css">
 </head>
 <body>
 
-    <header>
-        <h1>Mana vietne</h1>
-        <nav>
-            <ul>
-                <li><a href="#">Sākums</a></li>
-                <li><a href="#">Par mums</a></li>
-                <li><a href="#">Kontakti</a></li>
-            </ul>
-        </nav>
-        <!-- Dark mode poga -->
-        <button id="darkModeToggle">🌙 Tumšais režīms</button>
-    </header>
+  <header>
+    <h1>Mana vietne</h1>
+    
+    <!-- Navigācija -->
+    <nav id="navbar">
+      <ul>
+        <li><a href="#home">Sākums</a></li>
+        <li><a href="#about">Par mums</a></li>
+        <li><a href="#contacts">Kontakti</a></li>
+      </ul>
+    </nav>
 
-    <main>
-        <article>
-            <h1>Sveicināti manā vietnē</h1>
-            <h2>Neliels ievads</h2>
-            <p>Šī ir pamata HTML un CSS vietnes struktūra ar galveni, galveno sadaļu, sānu joslu un kājeni.</p>
-            <img src="https://via.placeholder.com/400x200" alt="Paraugs">
-        </article>
+    <!-- Dark mode -->
+    <button id="darkModeToggle">🌙 Tumšais režīms</button>
+    <button class="hamburger" id="hamburger">&#9776;</button>
+  </header>
 
-        <aside>
-            <h3>Saistītie raksti</h3>
-            <ul>
-                <li><a href="#">Raksts 1</a></li>
-                <li><a href="#">Raksts 2</a></li>
-                <li><a href="#">Raksts 3</a></li>
-            </ul>
-        </aside>
-    </main>
+  <!-- 🏠 Sākums -->
+  <main id="home">
+    <article>
+      <h1>Sveicināti manā vietnē</h1>
+      <h2>Neliels ievads</h2>
+      <p>Šī ir pamata HTML un CSS vietnes struktūra ar galveni, galveno sadaļu, sānu joslu un kājeni.</p>
+      <img src="https://via.placeholder.com/400x200" alt="Paraugs">
+    </article>
 
-    <!-- Kartīšu sadaļa -->
-    <section class="cards-section">
-        <h2>Produktu kartītes</h2>
-        <div class="card-container">
-            <div class="card">
-                <img src="https://via.placeholder.com/300x200" alt="Produkts 1">
-                <h3>Produkts 1</h3>
-                <p>Īss apraksts par produktu. Cena: 20€</p>
-                <button>Pirkt</button>
-            </div>
+    <aside>
+      <h3>Saistītie raksti</h3>
+      <ul>
+        <li><a href="#">Raksts 1</a></li>
+        <li><a href="#">Raksts 2</a></li>
+        <li><a href="#">Raksts 3</a></li>
+      </ul>
+    </aside>
+  </main>
 
-            <div class="card">
-                <img src="https://via.placeholder.com/300x200" alt="Produkts 2">
-                <h3>Produkts 2</h3>
-                <p>Īss apraksts par produktu. Cena: 35€</p>
-                <button>Pirkt</button>
-            </div>
+  <!-- 🃏 Produktu kartītes -->
+  <section class="cards-section">
+    <h2>Produktu kartītes</h2>
+    <div class="card-container">
+      <div class="card">
+        <img src="https://stickerly.shop/cdn/shop/products/AestherticRandomStickers_3.jpg?v=1749649361&width=200" alt="Produkts 1">
+        <h3>Produkts 1</h3>
+        <p>Īss apraksts par produktu. Cena: 20€</p>
+        <button>Pirkt</button>
+      </div>
 
-            <div class="card">
-                <img src="https://via.placeholder.com/300x200" alt="Produkts 3">
-                <h3>Produkts 3</h3>
-                <p>Īss apraksts par produktu. Cena: 50€</p>
-                <button>Pirkt</button>
-            </div>
-        </div>
-    </section>
+      <div class="card">
+        <img src="https://media.bunjang.co.kr/product/356593547_1_1757996659_w%7Bres%7D.jpg" alt="Produkts 2">
+        <h3>Produkts 2</h3>
+        <p>Īss apraksts par produktu. Cena: 35€</p>
+        <button>Pirkt</button>
+      </div>
 
-    <footer>
-        <p>&copy; 2025 Mana vietne. Visas tiesības aizsargātas.</p>
-        <p>
-            <a href="#">Facebook</a> | 
-            <a href="#">Twitter</a> | 
-            <a href="#">Instagram</a>
-        </p>
-    </footer>
+      <div class="card">
+        <img src="https://stickerly.shop/cdn/shop/products/AestherticRandomStickers_1.jpg?v=1704963539&width=1445" alt="Produkts 3">
+        <h3>Produkts 3</h3>
+        <p>Īss apraksts par produktu. Cena: 50€</p>
+        <button>Pirkt</button>
+      </div>
+    </div>
+  </section>
 
-    <!-- JavaScript priekš Dark mode -->
-    <script>
-        const toggleButton = document.getElementById('darkModeToggle');
-        toggleButton.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-            if(document.body.classList.contains('dark-mode')){
-                toggleButton.textContent = "☀️ Gaišais režīms";
-            } else {
-                toggleButton.textContent = "🌙 Tumšais režīms";
-            }
-        });
-    </script>
+  <!-- ℹ️ Par mums -->
+  <section id="about" class="about-section">
+    <h2>Par mums</h2>
+    <div class="about-container">
+      <img src="https://www.staffarabia.com/webimages/195e0e74c98d6a98b8b87ce0b0c82924.jpg" alt="Mūsu komanda">
+      <div class="about-text">
+        <p>Mēs esam neliela komanda, kas aizraujas ar modernu tīmekļa risinājumu izstrādi. 
+        Mūsu mērķis ir radīt ērti lietojamas un vizuāli pievilcīgas sistēmas klientiem.</p>
+        <ul>
+          <li>💡 Inovācija un radošums</li>
+          <li>🤝 Sadarbība un uzticība</li>
+          <li>🌍 Atbildība pret sabiedrību un vidi</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
+  <!-- 📬 Kontakti -->
+  <section id="contacts" class="contact-section">
+    <h2>Sazinies ar mums</h2>
+    <div class="contact-container">
+      <form class="contact-form">
+        <label for="name">Vārds:</label>
+        <input type="text" id="name" name="name" placeholder="Ievadi savu vārdu" required>
+
+        <label for="email">E-pasts:</label>
+        <input type="email" id="email" name="email" placeholder="Ievadi savu e-pastu" required>
+
+        <label for="message">Ziņa:</label>
+        <textarea id="message" name="message" rows="5" placeholder="Raksti savu ziņu..." required></textarea>
+
+        <button type="submit">Nosūtīt</button>
+      </form>
+
+      <div class="contact-info">
+        <img src="https://gustavconcept.com/cdn/shop/articles/QIC_SYD_Unispace_QIC_resized_2_copy.jpg?v=1691409476" alt="Biroja foto">
+        <p><strong>Mūsu adrese:</strong><br> Brīvības iela 100, Rīga, Latvija</p>
+        <p>📞 +371 12345678</p>
+        <p>📧 info@manavietne.lv</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Mana vietne. Visas tiesības aizsargātas.</p>
+    <p>
+      <a href="#">Facebook</a> | 
+      <a href="#">Twitter</a> | 
+      <a href="#">Instagram</a>
+    </p>
+  </footer>
+
+  <!-- JS -->
+  <script src="script.js"></script>
 </body>
 </html>

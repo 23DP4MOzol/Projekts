@@ -1,187 +1,357 @@
-/* Pamatstils */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
-    background: #f2f2f2;
-    color: #222;
+/* 🌐 Gluds scroll efekts */
+html {
+  scroll-behavior: smooth;
 }
 
-/* Galvene un navigācija */
+/* 🎨 Pamatstils */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  background: #f9f9f9;
+  color: #222;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* 🔝 Galvene */
 header {
-    background: #333;
-    color: #fff;
-    padding: 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  background: linear-gradient(90deg, #007BFF, #00C6FF);
+  color: #fff;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 header h1 {
-    margin: 0;
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: bold;
 }
+
+/* 🔗 Navigācija */
 nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    gap: 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 1.5rem;
 }
 nav a {
-    color: #fff;
-    text-decoration: none;
-    padding: 0.5rem 1rem;
-    transition: background 0.3s ease, color 0.3s ease;
+  position: relative;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 0;
+  transition: color 0.3s ease;
+}
+nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 2px;
+  background: #ffe600;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+  transform-origin: right;
+}
+nav a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
 }
 nav a:hover {
-    background: #fff;
-    color: #333;
-    border-radius: 5px;
+  color: #ffe600;
 }
 
-/* Dark mode pārslēgšanas poga */
+/* 🌙 Dark mode poga */
 #darkModeToggle {
-    background: #555;
-    color: #fff;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s ease;
+  background: #fff;
+  color: #007BFF;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
 }
 #darkModeToggle:hover {
-    background: #777;
+  background: #ffe600;
+  color: #333;
+  transform: scale(1.05);
 }
 
-/* Galvenā sadaļa */
+/* 🍔 Hamburger poga (mobilajām ierīcēm) */
+.hamburger {
+  display: none;
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* 📄 Galvenā sadaļa */
 main {
-    display: flex;
-    margin: 1rem;
-    background: #fff;
-    border-radius: 8px;
-    overflow: hidden;
+  display: flex;
+  margin: 2rem;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+  transition: background 0.3s ease;
 }
 article {
-    flex: 3;
-    padding: 1rem;
+  flex: 3;
+  padding: 1.5rem;
 }
 aside {
-    flex: 1;
-    background: #f4f4f4;
-    padding: 1rem;
-    margin-left: 1rem;
+  flex: 1;
+  background: #f4f4f4;
+  padding: 1.5rem;
 }
 
-/* Kartīšu sadaļa */
+/* 🃏 Produktu kartītes */
 .cards-section {
-    padding: 2rem;
-    text-align: center;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+.cards-section h2 {
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  color: #007BFF;
 }
 .card-container {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 1rem;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 .card {
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    width: 300px;
-    overflow: hidden;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  width: 300px;
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
 }
 .card img {
-    width: 100%;
-    height: auto;
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.card img:hover {
+  transform: scale(1.05);
 }
 .card h3 {
-    margin: 15px 0 10px;
-    font-size: 20px;
+  margin: 15px 0 10px;
+  font-size: 20px;
+  color: #007BFF;
 }
 .card p {
-    padding: 0 15px;
-    font-size: 14px;
-    color: #555;
+  padding: 0 15px;
+  font-size: 14px;
+  color: #555;
 }
 .card button {
-    margin: 15px 0 20px;
-    padding: 10px 20px;
-    border: none;
-    background: #007BFF;
-    color: white;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s ease, transform 0.2s ease;
+  margin: 15px 0 20px;
+  padding: 10px 20px;
+  border: none;
+  background: linear-gradient(90deg, #007BFF, #00C6FF);
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 .card button:hover {
-    background: #0056b3;
-    transform: scale(1.05);
+  background: linear-gradient(90deg, #0056b3, #0080c6);
+  transform: scale(1.08);
 }
 
-/* Kājene */
+/* ℹ️ Par mums sadaļa */
+.about-section {
+  padding: 3rem 2rem;
+  background: #f4f4f4;
+}
+.about-section h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  color: #007BFF;
+}
+.about-container {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.about-container img {
+  width: 100%;
+  max-width: 350px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+.about-text {
+  flex: 1;
+  font-size: 1.1rem;
+}
+
+/* 📬 Kontaktu sadaļa */
+.contact-section {
+  padding: 3rem 2rem;
+  background: #fff;
+}
+.contact-section h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  color: #007BFF;
+}
+.contact-container {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.contact-form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-width: 280px;
+  max-width: 400px;
+}
+.contact-form input,
+.contact-form textarea {
+  padding: 0.7rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+.contact-form button {
+  padding: 0.8rem;
+  border: none;
+  border-radius: 25px;
+  background: linear-gradient(90deg, #007BFF, #00C6FF);
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.contact-form button:hover {
+  background: linear-gradient(90deg, #0056b3, #0080c6);
+  transform: scale(1.05);
+}
+.contact-info {
+  flex: 1;
+  min-width: 280px;
+  max-width: 400px;
+}
+.contact-info img {
+  width: 100%;
+  max-width: 350px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* ⬇️ Kājene */
 footer {
-    background: #333;
-    color: #fff;
-    text-align: center;
-    padding: 1rem;
-    margin-top: 1rem;
+  background: #333;
+  color: #fff;
+  text-align: center;
+  padding: 1.5rem;
+  margin-top: 2rem;
 }
 footer a {
-    color: #fff;
-    margin: 0 0.5rem;
+  color: #ffe600;
+  text-decoration: none;
+  margin: 0 0.5rem;
+  transition: color 0.3s ease;
+}
+footer a:hover {
+  color: #fff;
 }
 
-/* Responsīvs dizains */
+/* 📱 Responsīvs dizains */
 @media (max-width: 768px) {
-    main {
-        flex-direction: column;
-    }
-    aside {
-        margin-left: 0;
-        margin-top: 1rem;
-    }
-    .card-container {
-        flex-direction: column;
-        align-items: center;
-    }
+  nav {
+    display: none;
+    width: 100%;
+  }
+  nav.active {
+    display: block;
+  }
+  nav ul {
+    flex-direction: column;
+    gap: 0;
+    background: #007BFF;
+    padding: 1rem;
+  }
+  nav a {
+    display: block;
+    padding: 0.75rem 0;
+  }
+  .hamburger {
+    display: block;
+  }
+  main {
+    flex-direction: column;
+  }
+  aside {
+    margin-top: 1rem;
+  }
+  .card-container,
+  .about-container,
+  .contact-container {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
-/* 🌙 Dark mode stili */
+/* 🌙 Dark mode */
 body.dark-mode {
-    background: #121212;
-    color: #e0e0e0;
+  background: #121212;
+  color: #e0e0e0;
 }
 body.dark-mode header {
-    background: #222;
-}
-body.dark-mode nav a {
-    color: #e0e0e0;
-}
-body.dark-mode nav a:hover {
-    background: #444;
-    color: #fff;
+  background: linear-gradient(90deg, #222, #444);
 }
 body.dark-mode main {
-    background: #1e1e1e;
+  background: #1e1e1e;
 }
 body.dark-mode aside {
-    background: #2a2a2a;
+  background: #2a2a2a;
 }
 body.dark-mode .card {
-    background: #1e1e1e;
-    box-shadow: 0 4px 6px rgba(255,255,255,0.1);
+  background: #1e1e1e;
+  box-shadow: 0 4px 6px rgba(255,255,255,0.1);
 }
-body.dark-mode .card p {
-    color: #ccc;
+body.dark-mode .card h3 {
+  color: #ffe600;
+}
+body.dark-mode .about-section {
+  background: #1e1e1e;
+}
+body.dark-mode .contact-section {
+  background: #1e1e1e;
 }
 body.dark-mode footer {
-    background: #222;
+  background: #222;
 }
