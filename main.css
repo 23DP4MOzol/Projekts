@@ -1,320 +1,665 @@
-/* Gluds scroll efekts */
+/* ========================================= */
+/*               GLOBAL STYLES                */
+/* ========================================= */
+* {
+    box-sizing: border-box;
+}
+
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
-
-/* 🌐 Pamatstils */
+  
 body {
-  font-family: 'Segoe UI', sans-serif;
-  margin: 0;
-  padding: 0;
-  line-height: 1.6;
-  background: #f9f9f9;
-  color: #222;
-  transition: background 0.3s ease, color 0.3s ease;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    color: #2c3e50;
+    transition: all 0.4s ease;
+    min-height: 100vh;
+}
+  
+/* Links */
+a {
+    text-decoration: none;
+    transition: all 0.3s ease;
 }
 
-/* 🔝 Galvene */
-header {
-  background: linear-gradient(90deg, #007BFF, #00C6FF);
-  color: #fff;
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-}
-header h1 {
-  margin: 0;
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 8px;
 }
 
-/* 🔗 Navigācija */
-nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  gap: 1.5rem;
-}
-nav a {
-  position: relative;
-  color: #fff;
-  text-decoration: none;
-  font-weight: 500;
-  padding: 0.5rem 0;
-  transition: color 0.3s ease;
-}
-nav a::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-  width: 100%;
-  height: 2px;
-  background: #fff;
-  transform: scaleX(0);
-  transition: transform 0.3s ease;
-  transform-origin: right;
-}
-nav a:hover::after {
-  transform: scaleX(1);
-  transform-origin: left;
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
 }
 
-/* 🌙 Dark mode poga */
-#darkModeToggle {
-  background: #fff;
-  color: #007BFF;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: all 0.3s ease;
-}
-#darkModeToggle:hover {
-  background: #ffe600;
-  color: #333;
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #007BFF, #00C6FF);
+    border-radius: 4px;
 }
 
-/* 🍔 Hamburger poga */
-.hamburger {
-  display: none;
-  font-size: 24px;
-  background: none;
-  border: none;
-  color: #fff;
-  cursor: pointer;
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, #0056b3, #0080c6);
 }
-
-/* 📄 Galvenā sadaļa */
-main {
-  display: flex;
-  margin: 2rem;
-  background: #fff;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-  transition: background 0.3s ease;
-}
-article {
-  flex: 3;
-  padding: 1.5rem;
-}
-aside {
-  flex: 1;
-  background: #f4f4f4;
-  padding: 1.5rem;
-}
-
-/* 🃏 Kartītes */
-.cards-section {
-  padding: 2rem;
-  text-align: center;
-}
-.card-container {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-.card {
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-  width: 300px;
-  overflow: hidden;
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-}
-.card h3 {
-  color: #007BFF;
-}
-.card button {
-  margin: 15px 0 20px;
-  padding: 10px 20px;
-  border: none;
-  background: linear-gradient(90deg, #007BFF, #00C6FF);
-  color: #fff;
-  border-radius: 25px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-.card button:hover {
-  background: linear-gradient(90deg, #0056b3, #0080c6);
-  transform: scale(1.05);
-}
-
-
-/* 🖼️ Kartīšu bildes */
-.card img {
-  width: 100%;
-  height: 180px;       /* fiksēts augstums, lai visas vienādas */
-  object-fit: cover;   /* saglabā proporcijas, apgriež lieko */
-  border-bottom: 2px solid #eee;
-  transition: transform 0.3s ease;
-}
-.card img:hover {
-  transform: scale(1.05); /* neliels hover efekts */
-  border-radius: 8px;
-}
-
-
-/* ⬇️ Kājene */
-footer {
-  background: #333;
-  color: #fff;
-  text-align: center;
-  padding: 1.5rem;
-  margin-top: 2rem;
-}
-footer a {
-  color: #ffe600;
-  text-decoration: none;
-}
-footer a:hover {
-  color: #fff;
-}
-
-/* 📱 Responsīvs dizains */
-@media (max-width: 768px) {
-  nav {
-    display: none;
-    width: 100%;
+  
+  /* ========================================= */
+  /*                HEADER                      */
+  /* ========================================= */
+  header {
+    background: linear-gradient(90deg, #007BFF, #00C6FF);
+    color: #fff;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: background 0.4s ease;
   }
-  nav.active {
-    display: block;
+  
+  header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    letter-spacing: 1px;
   }
+  
+  /* Navigation */
   nav ul {
-    flex-direction: column;
-    gap: 0;
-    background: #007BFF;
-    padding: 1rem;
+    display: flex;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
   }
   nav a {
-    display: block;
-    padding: 0.75rem 0;
+    color: #fff;
+    font-weight: 600;
+    position: relative;
+    padding: 0.5rem 0;
   }
+  nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #fff;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+  }
+  nav a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  
+  /* Hamburger for mobile */
   .hamburger {
-    display: block;
+    display: none;
+    font-size: 28px;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
   }
+  
+  /* Dark Mode Toggle */
+  #darkModeToggle {
+    background: #fff;
+    color: #007BFF;
+    border: none;
+    padding: 0.5rem 1.2rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+  }
+  #darkModeToggle:hover {
+    background: #ffe600;
+    color: #222;
+    transform: scale(1.05);
+  }
+  
+  /* ========================================= */
+  /*                 MAIN                       */
+  /* ========================================= */
   main {
-    flex-direction: column;
+    display: flex;
+    max-width: 1200px;
+    margin: 2rem auto;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    transition: background 0.4s ease, color 0.4s ease;
   }
+  
+  article {
+    flex: 3;
+    padding: 2rem;
+  }
+  
   aside {
-    margin-top: 1rem;
+    flex: 1;
+    background: #f4f4f4;
+    padding: 2rem;
+    border-left: 1px solid #ddd;
+    border-radius: 0 12px 12px 0;
   }
+  
+  /* ========================================= */
+  /*                CARDS                        */
+  /* ========================================= */
+  .cards-section {
+    padding: 3rem 2rem;
+    text-align: center;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    transition: all 0.4s ease;
+  }
+  
+  .cards-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #007BFF;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    position: relative;
+  }
+
+  .cards-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #007BFF, #00C6FF);
+    border-radius: 2px;
+  }
+  
   .card-container {
-    flex-direction: column;
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    width: 320px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #007BFF, #00C6FF);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .card:hover::before {
+    opacity: 1;
+  }
+  
+  .card:hover {
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0,123,255,0.2);
+  }
+  
+  .card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: all 0.4s ease;
+  }
+  
+  .card img:hover {
+    transform: scale(1.1);
+    filter: brightness(1.1);
+  }
+  
+  .card h3 {
+    color: #007BFF;
+    margin: 1.5rem 0 0.5rem;
+    font-size: 1.4rem;
+    font-weight: 700;
+  }
+  
+  .card p {
+    padding: 0 1.5rem;
+    margin-bottom: 1.5rem;
+    color: #666;
+    line-height: 1.6;
+  }
+  
+  .card button {
+    margin-bottom: 2rem;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 50px;
+    font-weight: 700;
+    cursor: pointer;
+    color: #fff;
+    background: linear-gradient(45deg, #007BFF, #00C6FF);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s ease;
+  }
+
+  .card button:hover::before {
+    left: 100%;
+  }
+  
+  .card button:hover {
+    background: linear-gradient(45deg, #0056b3, #0080c6);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,123,255,0.3);
+  }
+  
+  /* ========================================= */
+  /*                ABOUT                        */
+  /* ========================================= */
+  .about-section {
+    padding: 3rem 2rem;
+    background: #f4f4f4;
+    transition: background 0.4s ease, color 0.4s ease;
+  }
+  
+  .about-section h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: #007BFF;
+  }
+  
+  .about-container {
+    display: flex;
+    gap: 2rem;
     align-items: center;
+    flex-wrap: wrap;
   }
-}
-
-/* 🌙 Dark mode */
-body.dark-mode {
-  background: #121212;
-  color: #e0e0e0;
-}
-body.dark-mode header {
-  background: linear-gradient(90deg, #222, #444);
-}
-body.dark-mode main {
-  background: #1e1e1e;
-}
-body.dark-mode aside {
-  background: #2a2a2a;
-}
-body.dark-mode .card {
-  background: #1e1e1e;
-  box-shadow: 0 4px 6px rgba(255,255,255,0.1);
-}
-body.dark-mode .card h3 {
-  color: #ffe600;
-}
-body.dark-mode footer {
-  background: #222;
-}
-
-
-/* Par mums sadaļa */
-.about-section {
-  padding: 2rem;
-  background: #f4f4f4;
-}
-.about-container {
-  display: flex;
-  gap: 2rem;
-  align-items: center;
-  flex-wrap: wrap;
-}
-.about-container img {
-  border-radius: 10px;
-  max-width: 400px;
-}
-.about-text {
-  flex: 1;
-  font-size: 1.1rem;
-}
-
-/* Kontaktu sadaļa */
-.contact-section {
-  padding: 2rem;
-  background: #fff;
-}
-.contact-container {
-  display: flex;
-  gap: 2rem;
-  flex-wrap: wrap;
-}
-.contact-form {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-.contact-form input,
-.contact-form textarea {
-  padding: 0.7rem;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-}
-.contact-info {
-  flex: 1;
-}
-.contact-info img {
-  border-radius: 10px;
-  margin-bottom: 1rem;
-}
-
-/* Responsīvs dizains */
-@media (max-width: 768px) {
-  .about-container,
+  
+  .about-container img {
+    width: 100%;
+    max-width: 350px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+  }
+  
+  .about-text {
+    flex: 1;
+    font-size: 1.1rem;
+    color: #333;
+  }
+  
+  .about-text ul li {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+  }
+  
+  /* ========================================= */
+  /*                CONTACT                       */
+  /* ========================================= */
+  .contact-section {
+    padding: 3rem 2rem;
+    background: #fff;
+    transition: background 0.4s ease, color 0.4s ease;
+  }
+  
+  .contact-section h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: #007BFF;
+  }
+  
   .contact-container {
-    flex-direction: column;
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
   }
-}
+  
+  .contact-form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .contact-form input,
+  .contact-form textarea {
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+  
+  .contact-form input:focus,
+  .contact-form textarea:focus {
+    border-color: #007BFF;
+    outline: none;
+  }
+  
+  .contact-info {
+    flex: 1;
+    background: #f4f4f4;
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+  }
+  
+  .contact-info img {
+    width: 100%;
+    max-width: 350px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 1rem;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+  }
+  
+  /* ========================================= */
+  /*                 FOOTER                      */
+  /* ========================================= */
+  footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 2rem;
+    transition: background 0.4s ease, color 0.4s ease;
+  }
+  
+  footer a {
+    color: #ffe600;
+    margin: 0 0.5rem;
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
+  
+  footer a:hover {
+    color: #fff;
+  }
+  
+  /* ========================================= */
+  /*              RESPONSIVE DESIGN             */
+  /* ========================================= */
+  @media (max-width: 768px) {
+    nav {
+      display: none;
+      width: 100%;
+    }
+    nav.active {
+      display: block;
+    }
+    nav ul {
+      flex-direction: column;
+      gap: 0;
+      background: #007BFF;
+      padding: 1rem;
+    }
+    nav a {
+      display: block;
+      padding: 0.75rem 0;
+    }
+    .hamburger {
+      display: block;
+    }
+    main {
+      flex-direction: column;
+    }
+    aside {
+      margin-top: 1.5rem;
+      border-radius: 12px;
+    }
+    .card-container,
+    .about-container,
+    .contact-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  
+  /* ========================================= */
+  /*                DARK MODE                     */
+  /* ========================================= */
+  body.dark-mode {
+    background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+    color: #e0e0e0;
+  }
 
+  /* Dark mode scrollbar */
+  body.dark-mode ::-webkit-scrollbar-track {
+    background: #2a2a2a;
+  }
 
-/* 📸 Par mums sadaļas bilde */
-.about-container img {
-  width: 100%;
-  max-width: 350px;   /* ierobežo maksimālo izmēru */
-  height: 220px;      /* vienāds augstums */
-  object-fit: cover;  /* saglabā proporcijas */
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-}
+  body.dark-mode ::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #4a90e2, #7b68ee);
+  }
 
-/* 📸 Kontaktu sadaļas bilde */
-.contact-info img {
-  width: 100%;
-  max-width: 350px;
-  height: 220px;
-  object-fit: cover;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-}
+  body.dark-mode ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, #357abd, #6a5acd);
+  }
+  
+  body.dark-mode header {
+    background: linear-gradient(90deg, #1a1a2e, #16213e);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  }
+  
+  body.dark-mode nav a {
+    color: #e0e0e0;
+  }
+  
+  body.dark-mode nav a::after {
+    background: #4a90e2;
+  }
+
+  body.dark-mode #darkModeToggle {
+    background: #2a2a2a;
+    color: #4a90e2;
+    border: 1px solid #444;
+  }
+
+  body.dark-mode #darkModeToggle:hover {
+    background: #4a90e2;
+    color: #fff;
+    border-color: #4a90e2;
+  }
+  
+  body.dark-mode main {
+    background: rgba(30, 30, 30, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  }
+
+  body.dark-mode article {
+    color: #e0e0e0;
+  }
+
+  body.dark-mode article h1,
+  body.dark-mode article h2 {
+    color: #4a90e2;
+  }
+  
+  body.dark-mode aside {
+    background: rgba(42, 42, 42, 0.8);
+    border-left-color: #444;
+  }
+
+  body.dark-mode aside h3 {
+    color: #4a90e2;
+  }
+
+  body.dark-mode aside a {
+    color: #b0b0b0;
+  }
+
+  body.dark-mode aside a:hover {
+    color: #4a90e2;
+  }
+
+  /* Dark mode cards section */
+  body.dark-mode .cards-section {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  }
+
+  body.dark-mode .cards-section h2 {
+    color: #4a90e2;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  }
+
+  body.dark-mode .cards-section h2::after {
+    background: linear-gradient(90deg, #4a90e2, #7b68ee);
+  }
+  
+  body.dark-mode .card {
+    background: rgba(30, 30, 30, 0.9);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  }
+
+  body.dark-mode .card::before {
+    background: linear-gradient(90deg, #4a90e2, #7b68ee);
+  }
+
+  body.dark-mode .card:hover {
+    box-shadow: 0 20px 40px rgba(74, 144, 226, 0.2);
+    border-color: rgba(74, 144, 226, 0.3);
+  }
+  
+  body.dark-mode .card h3 {
+    color: #4a90e2;
+  }
+
+  body.dark-mode .card p {
+    color: #b0b0b0;
+  }
+
+  body.dark-mode .card button {
+    background: linear-gradient(45deg, #4a90e2, #7b68ee);
+  }
+
+  body.dark-mode .card button:hover {
+    background: linear-gradient(45deg, #357abd, #6a5acd);
+    box-shadow: 0 8px 20px rgba(74, 144, 226, 0.4);
+  }
+
+  /* Dark mode about section */
+  body.dark-mode .about-section {
+    background: linear-gradient(135deg, #16213e 0%, #1a1a2e 100%);
+  }
+
+  body.dark-mode .about-section h2 {
+    color: #4a90e2;
+  }
+  
+  body.dark-mode .about-text {
+    color: #e0e0e0;
+  }
+
+  body.dark-mode .about-text ul li {
+    color: #b0b0b0;
+  }
+
+  /* Dark mode contact section */
+  body.dark-mode .contact-section {
+    background: rgba(30, 30, 30, 0.95);
+    backdrop-filter: blur(10px);
+  }
+
+  body.dark-mode .contact-section h2 {
+    color: #4a90e2;
+  }
+  
+  body.dark-mode .contact-form input,
+  body.dark-mode .contact-form textarea {
+    background: rgba(42, 42, 42, 0.8);
+    border: 1px solid #444;
+    color: #e0e0e0;
+  }
+
+  body.dark-mode .contact-form input:focus,
+  body.dark-mode .contact-form textarea:focus {
+    border-color: #4a90e2;
+    box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+  }
+
+  body.dark-mode .contact-form label {
+    color: #b0b0b0;
+  }
+
+  body.dark-mode .contact-form button {
+    background: linear-gradient(45deg, #4a90e2, #7b68ee);
+    color: #fff;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  body.dark-mode .contact-form button:hover {
+    background: linear-gradient(45deg, #357abd, #6a5acd);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(74, 144, 226, 0.3);
+  }
+
+  body.dark-mode .contact-info {
+    background: rgba(42, 42, 42, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  body.dark-mode .contact-info p {
+    color: #b0b0b0;
+  }
+
+  body.dark-mode .contact-info strong {
+    color: #4a90e2;
+  }
+  
+  body.dark-mode footer {
+    background: linear-gradient(90deg, #0f0f23, #1a1a2e);
+    color: #e0e0e0;
+  }
+  
+  body.dark-mode footer a {
+    color: #4a90e2;
+  }
+  
+  body.dark-mode footer a:hover {
+    color: #7b68ee;
+  }
