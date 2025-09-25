@@ -1,9 +1,9 @@
-/* 🌐 Gluds scroll efekts */
+/* Gluds scroll efekts */
 html {
   scroll-behavior: smooth;
 }
 
-/* 🎨 Pamatstils */
+/* 🌐 Pamatstils */
 body {
   font-family: 'Segoe UI', sans-serif;
   margin: 0;
@@ -11,7 +11,7 @@ body {
   line-height: 1.6;
   background: #f9f9f9;
   color: #222;
-  transition: background 0.4s ease, color 0.4s ease;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 /* 🔝 Galvene */
@@ -23,12 +23,9 @@ header {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 header h1 {
   margin: 0;
-  font-size: 1.6rem;
-  font-weight: bold;
 }
 
 /* 🔗 Navigācija */
@@ -54,7 +51,7 @@ nav a::after {
   bottom: -4px;
   width: 100%;
   height: 2px;
-  background: #ffe600;
+  background: #fff;
   transform: scaleX(0);
   transition: transform 0.3s ease;
   transform-origin: right;
@@ -62,9 +59,6 @@ nav a::after {
 nav a:hover::after {
   transform: scaleX(1);
   transform-origin: left;
-}
-nav a:hover {
-  color: #ffe600;
 }
 
 /* 🌙 Dark mode poga */
@@ -81,10 +75,9 @@ nav a:hover {
 #darkModeToggle:hover {
   background: #ffe600;
   color: #333;
-  transform: scale(1.05);
 }
 
-/* 🍔 Hamburger poga (mobilajām ierīcēm) */
+/* 🍔 Hamburger poga */
 .hamburger {
   display: none;
   font-size: 24px;
@@ -99,9 +92,9 @@ main {
   display: flex;
   margin: 2rem;
   background: #fff;
-  border-radius: 12px;
+  border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
   transition: background 0.3s ease;
 }
 article {
@@ -114,15 +107,10 @@ aside {
   padding: 1.5rem;
 }
 
-/* 🃏 Produktu kartītes */
+/* 🃏 Kartītes */
 .cards-section {
-  padding: 3rem 2rem;
+  padding: 2rem;
   text-align: center;
-}
-.cards-section h2 {
-  margin-bottom: 1.5rem;
-  font-size: 2rem;
-  color: #007BFF;
 }
 .card-container {
   display: flex;
@@ -132,8 +120,8 @@ aside {
 }
 .card {
   background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
   width: 300px;
   overflow: hidden;
   text-align: center;
@@ -141,26 +129,10 @@ aside {
 }
 .card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-}
-.card img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  transition: transform 0.4s ease;
-}
-.card img:hover {
-  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
 }
 .card h3 {
-  margin: 15px 0 10px;
-  font-size: 20px;
   color: #007BFF;
-}
-.card p {
-  padding: 0 15px;
-  font-size: 14px;
-  color: #555;
 }
 .card button {
   margin: 15px 0 20px;
@@ -168,108 +140,29 @@ aside {
   border: none;
   background: linear-gradient(90deg, #007BFF, #00C6FF);
   color: #fff;
-  font-size: 16px;
-  font-weight: bold;
-  border-radius: 30px;
+  border-radius: 25px;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 .card button:hover {
   background: linear-gradient(90deg, #0056b3, #0080c6);
-  transform: scale(1.08);
-}
-
-/* ℹ️ Par mums sadaļa */
-.about-section {
-  padding: 3rem 2rem;
-  background: #f4f4f4;
-}
-.about-section h2 {
-  text-align: center;
-  margin-bottom: 2rem;
-  font-size: 2rem;
-  color: #007BFF;
-}
-.about-container {
-  display: flex;
-  gap: 2rem;
-  align-items: center;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-.about-container img {
-  width: 100%;
-  max-width: 350px;
-  height: 220px;
-  object-fit: cover;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}
-.about-text {
-  flex: 1;
-  font-size: 1.1rem;
-}
-
-/* 📬 Kontaktu sadaļa */
-.contact-section {
-  padding: 3rem 2rem;
-  background: #fff;
-}
-.contact-section h2 {
-  text-align: center;
-  margin-bottom: 2rem;
-  font-size: 2rem;
-  color: #007BFF;
-}
-.contact-container {
-  display: flex;
-  gap: 2rem;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-.contact-form {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  min-width: 280px;
-  max-width: 400px;
-}
-.contact-form input,
-.contact-form textarea {
-  padding: 0.7rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 1rem;
-}
-.contact-form button {
-  padding: 0.8rem;
-  border: none;
-  border-radius: 25px;
-  background: linear-gradient(90deg, #007BFF, #00C6FF);
-  color: #fff;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-.contact-form button:hover {
-  background: linear-gradient(90deg, #0056b3, #0080c6);
   transform: scale(1.05);
 }
-.contact-info {
-  flex: 1;
-  min-width: 280px;
-  max-width: 400px;
-}
-.contact-info img {
+
+
+/* 🖼️ Kartīšu bildes */
+.card img {
   width: 100%;
-  max-width: 350px;
-  height: 220px;
-  object-fit: cover;
-  border-radius: 12px;
-  margin-bottom: 1rem;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  height: 180px;       /* fiksēts augstums, lai visas vienādas */
+  object-fit: cover;   /* saglabā proporcijas, apgriež lieko */
+  border-bottom: 2px solid #eee;
+  transition: transform 0.3s ease;
 }
+.card img:hover {
+  transform: scale(1.05); /* neliels hover efekts */
+  border-radius: 8px;
+}
+
 
 /* ⬇️ Kājene */
 footer {
@@ -282,8 +175,6 @@ footer {
 footer a {
   color: #ffe600;
   text-decoration: none;
-  margin: 0 0.5rem;
-  transition: color 0.3s ease;
 }
 footer a:hover {
   color: #fff;
@@ -317,9 +208,7 @@ footer a:hover {
   aside {
     margin-top: 1rem;
   }
-  .card-container,
-  .about-container,
-  .contact-container {
+  .card-container {
     flex-direction: column;
     align-items: center;
   }
@@ -346,12 +235,86 @@ body.dark-mode .card {
 body.dark-mode .card h3 {
   color: #ffe600;
 }
-body.dark-mode .about-section {
-  background: #1e1e1e;
-}
-body.dark-mode .contact-section {
-  background: #1e1e1e;
-}
 body.dark-mode footer {
   background: #222;
+}
+
+
+/* Par mums sadaļa */
+.about-section {
+  padding: 2rem;
+  background: #f4f4f4;
+}
+.about-container {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.about-container img {
+  border-radius: 10px;
+  max-width: 400px;
+}
+.about-text {
+  flex: 1;
+  font-size: 1.1rem;
+}
+
+/* Kontaktu sadaļa */
+.contact-section {
+  padding: 2rem;
+  background: #fff;
+}
+.contact-container {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.contact-form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.contact-form input,
+.contact-form textarea {
+  padding: 0.7rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+.contact-info {
+  flex: 1;
+}
+.contact-info img {
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+/* Responsīvs dizains */
+@media (max-width: 768px) {
+  .about-container,
+  .contact-container {
+    flex-direction: column;
+  }
+}
+
+
+/* 📸 Par mums sadaļas bilde */
+.about-container img {
+  width: 100%;
+  max-width: 350px;   /* ierobežo maksimālo izmēru */
+  height: 220px;      /* vienāds augstums */
+  object-fit: cover;  /* saglabā proporcijas */
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* 📸 Kontaktu sadaļas bilde */
+.contact-info img {
+  width: 100%;
+  max-width: 350px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
